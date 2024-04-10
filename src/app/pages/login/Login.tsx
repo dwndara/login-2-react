@@ -33,14 +33,6 @@ const LoginContainer = () => {
     setChecked(e.target.checked);
   };
 
-  useEffect(() => {
-    console.log(email);
-  }, [email]);
-
-  useEffect(() => {
-    console.log(pwd);
-  }, [pwd]);
-
   const handleClick = () => {
     console.log(email);
     console.log(pwd);
