@@ -1,25 +1,26 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import { Link } from "@mui/material";
+import { FormControlLabel, Link } from "@mui/material";
 import Divider from "@mui/material/Divider";
+import { InputLogin } from "../../shared/components/TextField/InputLogin";
+import { LoginButton } from "../../shared/components/Button/LoginButton";
 
 const PageName = () => {
   return (
-    <Link
-      sx={{ fontWeight: "bold" }}
-      href="/home"
-      color="#026773"
-      underline="hover"
-      style={{ fontFamily: "'Nimbus Sans Arabic Bold', sans-serif" }}
-    >
-      HOME
-    </Link>
+    <Box>
+      <Link
+        sx={{ fontWeight: "bold" }}
+        href="/home"
+        color="#026773"
+        underline="hover"
+        style={{ fontFamily: "'Nimbus Sans Arabic Bold', sans-serif" }}
+      >
+        HOME
+      </Link>
+    </Box>
   );
 };
 
@@ -46,8 +47,8 @@ const LoginContainer = () => {
       color="#026773"
     >
       <form>
-        <Box sx={{ p: 2 }}>
-          <Typography align="center" variant="h3" marginBottom={5}>
+        <Box sx={{ p: 1 }}>
+          <Typography align="center" variant="h3">
             Login
             <Divider
               sx={{
@@ -59,72 +60,58 @@ const LoginContainer = () => {
               }}
             />
           </Typography>
-          <Typography align="left" variant="body1">
-            Insert your email
-          </Typography>
-          <TextField
-            sx={{ paddingBottom: 2, width: 400 }}
-            label="Email"
-            size="small"
-            variant="outlined"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                const nextInput = document.getElementById("password");
-                if (nextInput) {
-                  nextInput.focus();
-                }
-              }
-            }}
-          />
-          <Typography align="left" variant="body1">
-            Insert you password
-          </Typography>
-          <TextField
-            id="password"
-            sx={{ width: 400 }}
-            type="password"
-            label="Password"
-            size="small"
-            variant="outlined"
-            value={pwd}
-            onChange={(e) => setPwd(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                const nextInput = document.getElementById("loginButton");
-                if (nextInput) {
-                  nextInput.click();
-                }
-              }
-            }}
-          />
         </Box>
+
         <Box
           sx={{ p: 2, gap: "2px" }}
           display="flex"
           alignItems="left"
           flexDirection="column"
+          marginTop={-2}
           minHeight={"10vh"}
         >
-          <Typography>
+          <InputLogin
+            sx={{ margin: 1, width: 400 }}
+            label="Email"
+            value={email}
+            onChange={(newValue) => setEmail(newValue)}
+          />
+          <InputLogin
+            sx={{ margin: 1, width: 400 }}
+            label="Password"
+            value={pwd}
+            type="password"
+            onChange={(newValue) => setPwd(newValue)}
+          />
+          <Box display="flex" flexDirection="row" marginLeft={1}>
             <FormControlLabel
-              control={<Checkbox checked={checked} onChange={handleChange} />}
-              label="Keep me logged"
+              control={
+                <Checkbox
+                  sx={{
+                    marginTop: "-10px",
+                    marginBottom: "-10px",
+                    alignSelf: "flex-start",
+                  }}
+                  onChange={handleChange}
+                />
+              }
+              label={<Typography padding={-1}>Keep me logged</Typography>}
             />
-          </Typography>
-          <Button
-            id="loginButton"
-            sx={{ bgcolor: "#3d9db3" }}
-            size="small"
-            variant="contained"
+          </Box>
+          <LoginButton
+            sx={{
+              p: 1,
+              margin: 1,
+              bgcolor: "#3d9db3",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "#026773",
+              },
+            }}
             onClick={handleClick}
-            disableElevation
           >
-            Log in
-          </Button>
+            Log In
+          </LoginButton>
         </Box>
         <Box
           sx={{
@@ -137,21 +124,21 @@ const LoginContainer = () => {
           justifyContent="right"
         >
           <Typography sx={{ p: 1 }}>Doesn't have an account?</Typography>
-          <Button
+          <LoginButton
             sx={{
               margin: 0.8,
               marginRight: 2,
               bgcolor: "#f6f7f0",
               color: "#1da2c1",
+              "&:hover": {
+                backgroundColor: "#ffffff",
+              },
             }}
-            size="small"
-            variant="outlined"
             onClick={handleClick}
-            disableElevation
             href="/sign-up"
           >
             Sign Up
-          </Button>
+          </LoginButton>
         </Box>
       </form>
     </Box>
