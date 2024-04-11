@@ -120,7 +120,8 @@ const LoginContainer = () => {
         }} 
         size="small" 
         variant="outlined" 
-        onClick={handleClick} disableElevation>
+        onClick={handleClick} disableElevation
+        href="/sign-up">
             Sign Up
           </Button>
         </Box>
