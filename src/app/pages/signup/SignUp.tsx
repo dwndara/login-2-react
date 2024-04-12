@@ -71,11 +71,11 @@ const SignUpContainer = () => {
   const [emailError, setEmailError] = useState(false);
   const [pwdError, setPwdError] = useState(false);
 
-  const handleClick = () => {
-    console.log(name);
-    console.log(email);
-    console.log(pwd);
-  };
+  // const handleClick = () => {
+  //   console.log(name);
+  //   console.log(email);
+  //   console.log(pwd);
+  // };
 
   return (
     <Box

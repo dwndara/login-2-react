@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
@@ -29,9 +29,10 @@ const LoginContainer = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [checked, setChecked] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
 
