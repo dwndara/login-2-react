@@ -3,23 +3,16 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import Container from "@mui/material/Container";
-import { FormControlLabel, Link } from "@mui/material";
+import { FormControlLabel } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import { LoginButton, InputLogin } from "../../shared/components";
+import { LoginButton, InputLogin, TextButton } from "../../shared/components";
 import { useNavigate } from "react-router-dom";
 
 const PageName = () => {
+  const navigate = useNavigate();
   return (
     <Box>
-      <Link
-        sx={{ fontWeight: "bold" }}
-        href="/home"
-        color="#026773"
-        underline="hover"
-        style={{ fontFamily: "'Nimbus Sans Arabic Bold', sans-serif" }}
-      >
-        HOME
-      </Link>
+      <TextButton onClick={() => navigate("/home")}>HOME</TextButton>
     </Box>
   );
 };

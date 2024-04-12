@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Grid, Link } from "@mui/material";
+import { Grid } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { useState } from "react";
 import Modal from "@mui/material/Modal";
-import { InputLogin, LoginButton } from "../../shared/components";
+import { InputLogin, LoginButton, TextButton } from "../../shared/components";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute" as const,
@@ -20,26 +21,11 @@ const style = {
 };
 
 const PageName = () => {
+  const navigate = useNavigate();
   return (
     <Box>
-      <Link
-        sx={{ fontWeight: "bold" }}
-        href="/home"
-        color="#026773"
-        underline="hover"
-        style={{ fontFamily: "'Nimbus Sans Arabic Bold', sans-serif" }}
-      >
-        HOME
-      </Link>
-      <Link
-        sx={{ fontWeight: "bold", marginLeft: 2 }}
-        href="/login"
-        color="#026773"
-        underline="hover"
-        style={{ fontFamily: "'Nimbus Sans Arabic Bold', sans-serif" }}
-      >
-        LOGIN
-      </Link>
+      <TextButton onClick={() => navigate("/home")}>HOME</TextButton>
+      <TextButton onClick={() => navigate("/login")}>LOGIN</TextButton>
     </Box>
   );
 };
@@ -79,9 +65,9 @@ const SignUpContainer = () => {
   return (
     <Box
       sx={{
-        width: 350,
+        width: 400,
         marginY: 20,
-        marginX: 45,
+        marginX: 40,
         p: 4,
         outline: "1px solid #c8d8da",
         borderRadius: 1,
@@ -93,7 +79,7 @@ const SignUpContainer = () => {
           <Grid item xs={12} md={12} xl={12}>
             <Typography
               marginBottom={2}
-              variant="h5"
+              variant="h4"
               color="#026773"
               align="center"
             >
@@ -176,12 +162,6 @@ export const SignUp = () => {
   return (
     <Container sx={{ p: 2 }}>
       <PageName />
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
-      ></Box>
       <SignUpContainer />
     </Container>
   );

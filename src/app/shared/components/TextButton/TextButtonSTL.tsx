@@ -2,24 +2,25 @@ import Button from "@mui/material/Button";
 import { SxProps } from "@mui/material";
 import React from "react";
 
-interface ILoginButtonProps {
+interface ITextButtonProps {
   onClick: () => void;
   sx?: SxProps;
   children?: string;
 }
 
-export const LoginButton: React.FC<ILoginButtonProps> = (props) => {
+export const TextButton: React.FC<ITextButtonProps> = (props) => {
   return (
     <Button
       sx={props.sx}
       style={{
         fontWeight: "bold",
         fontFamily: "'Nimbus Sans Arabic Bold', sans-serif",
+        color: "#026773",
       }}
       size="small"
       disableElevation
       onClick={props.onClick}
-      variant="outlined"
+      variant="text"
     >
       {props.children}
     </Button>
