@@ -7,6 +7,7 @@ interface IInputLoginProps {
   value: string;
   type?: string;
   sx?: SxProps;
+  error?: boolean;
   onChange: (newValue: string) => void;
 }
 
@@ -20,6 +21,9 @@ export const InputLogin: React.FC<IInputLoginProps> = (props) => {
       value={props.value}
       type={props.type}
       onChange={(e) => props.onChange(e.target.value)}
+      fullWidth
+      required
+      error={props.error}
     ></TextField>
   );
 };

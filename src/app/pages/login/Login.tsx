@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
@@ -7,6 +7,7 @@ import { FormControlLabel, Link } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { InputLogin } from "../../shared/components/TextField/InputLogin";
 import { LoginButton } from "../../shared/components/Button/LoginButton";
+import { useNavigate } from "react-router-dom";
 
 const PageName = () => {
   return (
@@ -25,6 +26,7 @@ const PageName = () => {
 };
 
 const LoginContainer = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [checked, setChecked] = useState(false);
@@ -36,6 +38,9 @@ const LoginContainer = () => {
   const handleClick = () => {
     console.log(email);
     console.log(pwd);
+  };
+  const handleClickSignUp = () => {
+    navigate("/sign-up");
   };
 
   return (
@@ -134,8 +139,7 @@ const LoginContainer = () => {
                 backgroundColor: "#ffffff",
               },
             }}
-            onClick={handleClick}
-            href="/sign-up"
+            onClick={handleClickSignUp}
           >
             Sign Up
           </LoginButton>
