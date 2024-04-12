@@ -5,8 +5,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Container from "@mui/material/Container";
 import { FormControlLabel, Link } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import { InputLogin } from "../../shared/components/TextField/InputLogin";
-import { LoginButton } from "../../shared/components/Button/LoginButton";
+import { LoginButton, InputLogin } from "../../shared/components";
 import { useNavigate } from "react-router-dom";
 
 const PageName = () => {

@@ -1,12 +1,11 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { Grid, Link } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import { InputLogin } from "../../shared/components/TextField/InputLogin";
 import { useState } from "react";
 import Modal from "@mui/material/Modal";
+import { InputLogin, LoginButton } from "../../shared/components";
 
 const style = {
   position: "absolute" as const,
@@ -138,19 +137,19 @@ const SignUpContainer = () => {
             />
           </Grid>
           <Grid item xs={12} md={12} xl={12} style={{ textAlign: "center" }}>
-            <Button
+            <LoginButton
               sx={{
                 marginTop: 0,
+                color: "white",
                 bgcolor: "#3d9db3",
                 "&:hover": {
                   backgroundColor: "#026773",
                 },
               }}
-              variant="contained"
               onClick={handleOpen}
             >
               Create account
-            </Button>
+            </LoginButton>
             <Modal
               open={open}
               onClose={handleClose}
