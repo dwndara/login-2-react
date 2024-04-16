@@ -32,6 +32,7 @@ const PageName = () => {
 const SignUpContainer = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+
   const handleClose = () => {
     setNameError(false);
     setEmailError(false);
@@ -65,7 +66,7 @@ const SignUpContainer = () => {
 
   return (
     <Box
-      margin={theme.spacing(28)}
+      margin={theme.spacing(22)}
       sx={{
         outline: "1px solid #c8d8da",
         borderRadius: 1,
@@ -101,6 +102,7 @@ const SignUpContainer = () => {
             label="Name"
             value={name}
             onChange={(newValue) => setName(newValue)}
+            error={nameError}
           />
           <InputLogin
             sx={{ margin: 1, width: 400 }}
@@ -108,6 +110,7 @@ const SignUpContainer = () => {
             value={email}
             type="email"
             onChange={(newValue) => setEmail(newValue)}
+            error={emailError}
           />
           <InputLogin
             sx={{ margin: 1, width: 400 }}
@@ -115,6 +118,7 @@ const SignUpContainer = () => {
             value={pwd}
             type="password"
             onChange={(newValue) => setPwd(newValue)}
+            error={pwdError}
           />
 
           <LoginButton

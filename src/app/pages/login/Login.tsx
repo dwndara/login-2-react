@@ -2,13 +2,15 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
-import { FormControlLabel, useTheme } from "@mui/material";
+import { FormControlLabel, useMediaQuery, useTheme } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { LoginButton, InputLogin, TextButton } from "../../shared/components";
 import { useNavigate } from "react-router-dom";
 
 const PageName = () => {
+  const theme = useTheme();
   const navigate = useNavigate();
+  const smallerBox = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box>
       <TextButton onClick={() => navigate("/home")}>HOME</TextButton>
@@ -38,7 +40,7 @@ const LoginContainer = () => {
 
   return (
     <Box
-      margin={theme.spacing(28)}
+      margin={theme.spacing(22)}
       sx={{
         outline: "1px solid #c8d8da",
         borderRadius: 1,
