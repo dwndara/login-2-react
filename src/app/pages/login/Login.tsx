@@ -2,16 +2,12 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
-import Container from "@mui/material/Container";
 import { FormControlLabel, useTheme } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { LoginButton, InputLogin, TextButton } from "../../shared/components";
 import { useNavigate } from "react-router-dom";
-import { CenterFocusStrong } from "@mui/icons-material";
 
 const PageName = () => {
-  const theme = useTheme();
-
   const navigate = useNavigate();
   return (
     <Box>
@@ -21,6 +17,7 @@ const PageName = () => {
 };
 
 const LoginContainer = () => {
+  const theme = useTheme();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
@@ -41,6 +38,7 @@ const LoginContainer = () => {
 
   return (
     <Box
+      margin={theme.spacing(28)}
       sx={{
         outline: "1px solid #c8d8da",
         borderRadius: 1,
@@ -147,19 +145,16 @@ const LoginContainer = () => {
 
 export const Login = () => {
   return (
-    <Container sx={{ p: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <PageName />
-      <Box
-        height="100vh"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <LoginContainer />
-      </Box>
-    </Container>
+      <LoginContainer />
+    </Box>
   );
 };
