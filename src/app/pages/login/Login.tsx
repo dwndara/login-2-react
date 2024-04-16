@@ -3,12 +3,15 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import Container from "@mui/material/Container";
-import { FormControlLabel } from "@mui/material";
+import { FormControlLabel, useTheme } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { LoginButton, InputLogin, TextButton } from "../../shared/components";
 import { useNavigate } from "react-router-dom";
+import { CenterFocusStrong } from "@mui/icons-material";
 
 const PageName = () => {
+  const theme = useTheme();
+
   const navigate = useNavigate();
   return (
     <Box>
@@ -147,11 +150,13 @@ export const Login = () => {
     <Container sx={{ p: 2 }}>
       <PageName />
       <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        minHeight="90vh"
-        flexDirection="column"
+        height="100vh"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
         <LoginContainer />
       </Box>

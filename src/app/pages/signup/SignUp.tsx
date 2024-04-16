@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Grid } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import { useState } from "react";
 import Modal from "@mui/material/Modal";
@@ -31,6 +31,7 @@ const PageName = () => {
 };
 
 const SignUpContainer = () => {
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setNameError(false);
@@ -75,10 +76,10 @@ const SignUpContainer = () => {
       color="#026773"
     >
       <form>
-        <Grid container spacing={2}>
+        <Grid container spacing={theme.spacing(2)}>
           <Grid item xs={12} md={12} xl={12}>
             <Typography
-              marginBottom={2}
+              marginBottom={theme.spacing(3)}
               variant="h4"
               color="#026773"
               align="center"
@@ -162,7 +163,17 @@ export const SignUp = () => {
   return (
     <Container sx={{ p: 2 }}>
       <PageName />
-      <SignUpContainer />
+      <Box
+        height="100vh"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <SignUpContainer />
+      </Box>
     </Container>
   );
 };
